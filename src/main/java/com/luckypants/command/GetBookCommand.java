@@ -8,12 +8,12 @@ import com.mongodb.DBObject;
 
 public class GetBookCommand {
 
-	public DBObject execute(String isbn) {
+	public DBObject execute(String title) {
 		BooksConnectionProvider booksConn = new BooksConnectionProvider();
 		DBCollection booksCollection = booksConn.getCollection();
 
 		BasicDBObject searchQuery = new BasicDBObject();
-		searchQuery.put("ISBN", isbn);
+		searchQuery.put("title", title);
 
 		DBCursor cursor = booksCollection.find(searchQuery);
 		DBObject book = cursor.next();
@@ -23,7 +23,7 @@ public class GetBookCommand {
 	
 	public static void main(String[] args) {
 		GetBookCommand command = new GetBookCommand();
-		System.out.println(command.execute("1234"));
+		System.out.println(command.execute("Book2"));
 	}
 
 }

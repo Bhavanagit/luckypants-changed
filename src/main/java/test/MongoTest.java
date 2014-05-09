@@ -26,12 +26,12 @@ public class MongoTest {
 			/**
 			 * Connect to Mongo DB
 			 */
-			MongoClient mongo = new MongoClient("oceanic.mongohq.com", 10099);
+			MongoClient mongo = new MongoClient("oceanic.mongohq.com", 10097);
 
 			/**
 			 * Connect to DB
 			 */
-			DB db = mongo.getDB("luckypants");
+			DB db = mongo.getDB("database_LuckyPants");
 			if (db == null) {
 				System.out.println("Could not connect to Database");
 			}
@@ -39,7 +39,7 @@ public class MongoTest {
 			/**
 			 * authenticate to Mongo HQ
 			 */
-			boolean auth = db.authenticate("unh", "unh".toCharArray());
+			boolean auth = db.authenticate("Bhavana", "Bhavanagit1".toCharArray());
 			if (auth == false) {
 				System.out.println("Could not authenticate");
 			}
