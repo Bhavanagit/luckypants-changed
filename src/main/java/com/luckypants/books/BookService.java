@@ -34,11 +34,11 @@ public class BookService {
 	}
 
 	@GET
-	@Path("/{isbn}")
+	@Path("/{title}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getBook(@PathParam("isbn") String isbn) {
+	public Response getBook(@PathParam("title") String title) {
 		GetBookCommand getBookCommand = new GetBookCommand();
-		DBObject book = getBookCommand.execute(isbn);
+		DBObject book = getBookCommand.execute(title);
 		return Response.status(200).entity(book).build();
 	}
 
